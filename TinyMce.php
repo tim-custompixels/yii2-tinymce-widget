@@ -24,6 +24,8 @@ class TinyMce extends InputWidget
      */
     public $language = 'en';
 
+    public string $licenseKey = 'gpl';
+
     /**
      * @var array the options for the TinyMCE JS plugin.
      * Please refer to the TinyMCE JS plugin Web page for possible options.
@@ -76,6 +78,7 @@ class TinyMce extends InputWidget
         }
         $id = $this->options['id'] ?: $this->getId();
         $this->clientOptions['selector'] = "#{$id}";
+        $this->clientOptions['license_key'] = $this->licenseKey;
         $this->clientOptions['language'] = isset($this->clientOptions['language']) ? $this->clientOptions['language'] : $this->language;
 
         if ($this->fileManager !== false) {
